@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUTOREPUESTOS RICHARD · LAMONA</title>
     <style>
-        /* ESTILOS CSS - TODO EN UNO */
+        /* ESTILOS CSS - (MANTENEMOS LOS MISMOS QUE YA FUNCIONAN) */
         * {
             margin: 0;
             padding: 0;
@@ -880,39 +880,63 @@
         </div>
     </section>
 
-          // ===== WEB SHARE API - BOTÓN COMPARTIR =====
-        function compartirPagina() {
-            const url = 'https://richardlamona.netlify.app';
-            const titulo = 'AUTOREPUESTOS RICHARD · LAMONA';
-            const texto = '🚗 Repuestos nuevos y usados para Spark, Aveo y más. Atención personalizada de Liliana. ¡Pregúntale!';
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#inicio" class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="logo-text">
+                            <h3>AUTOREPUESTOS RICHARD · LAMONA</h3>
+                            <span>REPUESTOS NUEVOS Y USADOS</span>
+                        </div>
+                    </a>
+                    <p class="footer-tagline">La calidad y la calidez nos distinguen</p>
+                    <p style="color: #ffb3b3; margin-top: 10px;">Pregunte por Liliana, ella le atenderá personalmente</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                        <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                        <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                        <li><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contacto Rápido</h4>
+                    <div class="contact-links">
+                        <a href="tel:573208521333" class="contact-link">
+                            <i class="fas fa-phone"></i> Llamar
+                        </a>
+                        <a href="https://wa.me/573208521333?text=Hola%20Liliana,%20vi%20su%20sitio%20web%20y%20necesito%20información%20sobre%20repuestos." class="contact-link" target="_blank" style="background: #25d366; color: white;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                        <button onclick="compartirPagina()" class="contact-link" style="border: none; width: 100%; cursor: pointer; background: rgba(255,255,255,0.05); margin-top: 10px;">
+                            <i class="fas fa-share-alt"></i> Compartir
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 AUTOREPUESTOS RICHARD · LAMONA. Todos los derechos reservados.</p>
+                <p style="margin-top: 10px; font-size: 0.9rem;">Con la atención inigualable de <strong>LILIANA</strong>, siempre hay un repuesto para ti.</p>
+            </div>
+        </div>
+    </footer>
 
-            if (navigator.share) {
-                navigator.share({
-                    title: titulo,
-                    text: texto,
-                    url: url
-                }).catch((error) => {
-                    console.log('Error al compartir:', error);
-                    // Si el usuario cancela, no mostramos alerta
-                    if (error.name !== 'AbortError') {
-                        alert('No se pudo compartir. Puede copiar el enlace manualmente.');
-                    }
-                });
-            } else {
-                // Fallback para navegadores sin Web Share API
-                navigator.clipboard.writeText(url).then(() => {
-                    alert('✅ Enlace copiado al portapapeles. ¡Pégalo donde quieras!');
-                }).catch(() => {
-                    alert('📋 Copia este enlace: ' + url);
-                });
-            }
-        }
-    <!-- WHATSAPP FLOTANTE (el clásico verde flotante) -->
+    <!-- WHATSAPP FLOTANTE -->
     <a href="https://wa.me/573208521333?text=Hola%20Liliana,%20vi%20su%20sitio%20web%20y%20necesito%20información%20sobre%20repuestos." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT - TODO DENTRO DE LA ETIQUETA -->
     <script>
         // Menú Hamburguesa
         const menuBtn = document.getElementById('menuBtn');
@@ -923,7 +947,6 @@
             menuBtn.classList.toggle('active');
         });
         
-        // Cerrar menú al hacer clic en enlace
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -931,14 +954,12 @@
             });
         });
         
-        // Formulario
         document.getElementById('serviceForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('¡Gracias! Tu consulta ha sido enviada. Liliana te contactará pronto.');
             this.reset();
         });
         
-        // Año actual en footer
         document.querySelector('footer .copyright p').innerHTML = 
             '&copy; ' + new Date().getFullYear() + ' AUTOREPUESTOS RICHARD · LAMONA. Todos los derechos reservados.';
         
